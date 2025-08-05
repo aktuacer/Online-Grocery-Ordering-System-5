@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.grocery.ordering"},{"l":"com.grocery.ordering.config"},{"l":"com.grocery.ordering.controller"},{"l":"com.grocery.ordering.dto"},{"l":"com.grocery.ordering.model"},{"l":"com.grocery.ordering.repository"},{"l":"com.grocery.ordering.service"}];updateSearchResults();

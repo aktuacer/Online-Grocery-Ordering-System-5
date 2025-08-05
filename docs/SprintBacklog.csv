@@ -1,0 +1,16 @@
+Sprint,Story ID,Story Title,Story Points,Status,Assigned To,Start Date,End Date,Acceptance Criteria Met,Comments
+Sprint 1,US001,Online Grocery Ordering Menu System,8,Completed,Chirag Singhal,2025-08-01,2025-08-01,Yes,Admin menu system with all options implemented
+Sprint 1,US002,Customer Registration,5,Completed,Chirag Singhal,2025-08-01,2025-08-01,Yes,Registration with validation and unique customer ID generation
+Sprint 1,US003,Update Customer Details,3,Completed,Chirag Singhal,2025-08-01,2025-08-01,Yes,Customer can update their profile information
+Sprint 1,US010,SQL Injection Prevention,8,Completed,Chirag Singhal,2025-08-01,2025-08-01,Yes,All queries use prepared statements
+Sprint 2,US004,Get Customer Order Details,5,Completed,Chirag Singhal,2025-08-02,2025-08-02,Yes,Customers can view their order history
+Sprint 2,US005,Search Customer Details,3,Completed,Chirag Singhal,2025-08-02,2025-08-02,Yes,Admin can search customers by name
+Sprint 2,US006,Search Product Details,3,Completed,Chirag Singhal,2025-08-02,2025-08-02,Yes,Customers can search products by name
+Sprint 3,US007,Register Product,5,Completed,Chirag Singhal,2025-08-03,2025-08-03,Yes,Admin can register new products
+Sprint 3,US008,Update Product,3,Completed,Chirag Singhal,2025-08-03,2025-08-03,Yes,Admin can update product details
+Sprint 3,US009,Delete Product,2,Completed,Chirag Singhal,2025-08-03,2025-08-03,Yes,Admin can delete products
+Sprint 3,Frontend Development,Angular Frontend Implementation,13,Completed,Chirag Singhal,2025-08-03,2025-08-03,Yes,Complete Angular frontend with responsive design
+Sprint 3,Admin Dashboard,JSP Admin Dashboard,8,Completed,Chirag Singhal,2025-08-03,2025-08-03,Yes,Complete admin dashboard with all management features
+Sprint 3,Security Implementation,Comprehensive Security Features,8,Completed,Chirag Singhal,2025-08-03,2025-08-03,Yes,Authentication authorization and security headers
+Sprint 3,Database Setup,MySQL Database with Docker,5,Completed,Chirag Singhal,2025-08-03,2025-08-03,Yes,Complete database schema with sample data
+Sprint 3,Documentation,Project Documentation,5,Completed,Chirag Singhal,2025-08-03,2025-08-03,Yes,README CHANGELOG and technical documentation

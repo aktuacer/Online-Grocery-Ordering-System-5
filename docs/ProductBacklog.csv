@@ -1,0 +1,21 @@
+Epic,Story ID,Story Title,Description,Priority,Story Points,Status,Acceptance Criteria,Business Value,Dependencies
+Authentication,US001,Admin Menu System,Develop menu system for admin operations,High,8,Done,"Menu displays after successful login, handles all 9 options, proper error handling",High,None
+User Management,US002,Customer Registration,Allow customers to register accounts,High,5,Done,"Unique customer ID generation, email validation, password complexity, phone validation",High,None
+User Management,US003,Update Customer Details,Allow customers to update their information,Medium,3,Done,"Authentication required, field validation, successful update confirmation",Medium,US002
+Order Management,US004,Get Customer Order Details,Display customer order history,High,5,Done,"Customer authentication, order history display, proper data formatting",High,US002
+Admin Features,US005,Search Customer Details,Admin can search customers by name,Medium,3,Done,"Admin authentication, case-insensitive search, proper error handling",Medium,US001
+Product Catalog,US006,Search Product Details,Customers can search products,High,3,Done,"Product search functionality, case-insensitive, availability check",High,None
+Product Management,US007,Register Product,Admin can add new products,High,5,Done,"Product validation, unique ID generation, price and quantity validation",High,US001
+Product Management,US008,Update Product,Admin can modify product details,Medium,3,Done,"Product exists validation, field validation, successful update",Medium,US007
+Product Management,US009,Delete Product,Admin can remove products,Low,2,Done,"Product exists validation, confirmation dialog, successful deletion",Low,US007
+Security,US010,SQL Injection Prevention,Prevent SQL injection attacks,Critical,8,Done,"All queries use prepared statements, input validation, security testing",Critical,All Stories
+Frontend,FE001,Angular Customer Portal,Modern web interface for customers,High,13,Done,"Responsive design, intuitive navigation, real-time updates",High,US002 US004 US006
+Admin Interface,AI001,JSP Admin Dashboard,Server-side admin interface,High,8,Done,"Complete admin functionality, secure access, professional UI",High,US001 US005 US007 US008 US009
+Infrastructure,INF001,Database Setup,MySQL database with Docker,High,5,Done,"Complete schema, sample data, proper constraints, Docker containerization",High,All Stories
+Infrastructure,INF002,Spring Boot Backend,RESTful API backend,High,10,Done,"Complete REST APIs, proper error handling, security integration",High,All Stories
+Security,SEC001,Authentication System,Secure login and session management,Critical,8,Done,"BCrypt encryption, session management, role-based access",Critical,US001 US002
+Security,SEC002,Authorization System,Role-based access control,High,5,Done,"Admin and customer roles, proper access restrictions",High,SEC001
+Performance,PER001,Database Optimization,Optimize database performance,Medium,3,Done,"Proper indexing, connection pooling, query optimization",Medium,INF001
+Quality,QUA001,Code Quality,Maintain high code quality standards,Medium,5,Done,"Clean architecture, proper documentation, error handling",Medium,All Stories
+Documentation,DOC001,Technical Documentation,Comprehensive project documentation,Low,3,Done,"README, API docs, user manual, NFRs documentation",Low,All Stories
+Testing,TEST001,System Testing,Comprehensive testing strategy,Medium,5,Done,"Unit tests, integration tests, manual testing",Medium,All Stories
