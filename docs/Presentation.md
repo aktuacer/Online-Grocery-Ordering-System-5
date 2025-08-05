@@ -10,8 +10,8 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 # Online Grocery Ordering System
 ## Complete Full-Stack Web Application
 
-**Developed by:** Chirag Singhal  
-**Date:** August 3, 2025  
+**Developed by:** Chirag Singhal
+**Date:** August 3, 2025
 **Version:** 1.0.0
 
 ---
@@ -280,14 +280,14 @@ admin_users (id, username, password, email)
 
 ### 📞 Contact Information
 
-**Developer:** Chirag Singhal  
-**GitHub:** [@chirag127](https://github.com/chirag127)  
-**Email:** chirag.singhal@example.com  
+**Developer:** Chirag Singhal
+**GitHub:** [@chirag127](https://github.com/chirag127)
+**Email:** chirag.singhal2@tcs.com
 
-**Project Repository:**  
+**Project Repository:**
 https://github.com/chirag127/Online-Grocery-Ordering-System-5
 
-**Live Demo:**  
+**Live Demo:**
 - Customer Portal: http://localhost:4200
 - Admin Dashboard: http://localhost:8080/login
 
