@@ -1,0 +1,125 @@
+<div class="container mt-4">
+  <!-- Header -->
+  <div class="row mb-4">
+    <div class="col-md-8">
+      <h2><i class="fas fa-box me-2"></i>Products</h2>
+      <p class="text-muted">Browse our fresh grocery selection</p>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search products..."
+          [(ngModel)]="searchTerm"
+          (input)="searchProducts()"
+        />
+        <button
+          class="btn btn-outline-primary"
+          type="button"
+          (click)="searchProducts()"
+        >
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2">Loading products...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    <i class="fas fa-exclamation-triangle me-2"></i>{{ errorMessage }}
+  </div>
+
+  <!-- Success Message -->
+  <div
+    *ngIf="successMessage"
+    class="alert alert-success alert-dismissible fade show"
+  >
+    <i class="fas fa-check-circle me-2"></i>{{ successMessage }}
+    <button
+      type="button"
+      class="btn-close"
+      (click)="successMessage = ''"
+    ></button>
+  </div>
+
+  <!-- Products Grid -->
+  <div *ngIf="!isLoading && products.length > 0" class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let product of products">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.productName }}</h5>
+          <p class="card-text text-muted">
+            Product ID: {{ product.productId }}
+          </p>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="h5 text-primary mb-0">${{ product.price }}</span>
+            <span
+              class="badge"
+              [class]="product.quantity > 0 ? 'bg-success' : 'bg-danger'"
+            >
+              {{
+                product.quantity > 0
+                  ? "In Stock (" + product.quantity + ")"
+                  : "Out of Stock"
+              }}
+            </span>
+          </div>
+
+          <div
+            class="d-flex align-items-center mb-3"
+            *ngIf="product.quantity > 0"
+          >
+            <label class="form-label me-2 mb-0">Qty:</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              style="width: 80px"
+              min="1"
+              [max]="product.quantity"
+              [(ngModel)]="product.selectedQuantity"
+              value="1"
+            />
+          </div>
+
+          <button
+            class="btn btn-primary w-100"
+            [disabled]="product.quantity <= 0 || isAddingToCart"
+            (click)="addToCart(product)"
+          >
+            <span
+              *ngIf="isAddingToCart"
+              class="spinner-border spinner-border-sm me-2"
+            ></span>
+            <i class="fas fa-cart-plus me-2"></i>
+            {{ product.quantity > 0 ? "Add to Cart" : "Out of Stock" }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Products Found -->
+  <div *ngIf="!isLoading && products.length === 0" class="text-center py-5">
+    <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+    <h4>No Products Found</h4>
+    <p class="text-muted">
+      {{
+        searchTerm
+          ? "No products match your search criteria."
+          : "No products available at the moment."
+      }}
+    </p>
+    <button *ngIf="searchTerm" class="btn btn-primary" (click)="clearSearch()">
+      <i class="fas fa-refresh me-2"></i>Show All Products
+    </button>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+          <h4><i class="fas fa-sign-in-alt me-2"></i>Customer Login</h4>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                [(ngModel)]="loginData.email"
+                required
+                email
+                #email="ngModel"
+              />
+              <div *ngIf="email.invalid && email.touched" class="text-danger">
+                <small *ngIf="email.errors?.['required']"
+                  >Email is required</small
+                >
+                <small *ngIf="email.errors?.['email']"
+                  >Please enter a valid email</small
+                >
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                [(ngModel)]="loginData.password"
+                required
+                #password="ngModel"
+              />
+              <div
+                *ngIf="password.invalid && password.touched"
+                class="text-danger"
+              >
+                <small *ngIf="password.errors?.['required']"
+                  >Password is required</small
+                >
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <select
+                class="form-select"
+                [(ngModel)]="loginData.userType"
+                name="userType"
+                required
+              >
+                <option value="customer">Customer</option>
+                <option value="admin">Administrator</option>
+              </select>
+            </div>
+
+            <div *ngIf="errorMessage" class="alert alert-danger">
+              {{ errorMessage }}
+            </div>
+
+            <div *ngIf="successMessage" class="alert alert-success">
+              {{ successMessage }}
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              [disabled]="loginForm.invalid || isLoading"
+            >
+              <span
+                *ngIf="isLoading"
+                class="spinner-border spinner-border-sm me-2"
+              ></span>
+              <i class="fas fa-sign-in-alt me-2"></i>
+              {{ isLoading ? "Signing In..." : "Sign In" }}
+            </button>
+          </form>
+
+          <hr />
+          <div class="text-center">
+            <p class="mb-0">
+              Don't have an account?
+              <a routerLink="/register" class="text-decoration-none"
+                >Register here</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Credentials -->
+      <div class="card mt-3">
+        <div class="card-header bg-info text-white">
+          <h6 class="mb-0">
+            <i class="fas fa-info-circle me-2"></i>Sample Credentials
+          </h6>
+        </div>
+        <div class="card-body">
+          <p class="mb-2"><strong>Admin:</strong></p>
+          <p class="mb-1">Email: admin</p>
+          <p class="mb-3">Password: admin123</p>
+
+          <p class="mb-2"><strong>Customer:</strong></p>
+          <p class="mb-1">Email: john.doe&#64;example.com</p>
+          <p class="mb-0">Password: password123</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

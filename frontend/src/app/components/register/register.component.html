@@ -1,0 +1,159 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow">
+        <div class="card-header bg-success text-white text-center">
+          <h4><i class="fas fa-user-plus me-2"></i>Customer Registration</h4>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+            <div class="mb-3">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="fullName"
+                name="fullName"
+                [(ngModel)]="registerData.fullName"
+                required
+                #fullName="ngModel"
+              />
+              <div
+                *ngIf="fullName.invalid && fullName.touched"
+                class="text-danger"
+              >
+                <small>Full name is required</small>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                [(ngModel)]="registerData.email"
+                required
+                email
+                #email="ngModel"
+              />
+              <div *ngIf="email.invalid && email.touched" class="text-danger">
+                <small *ngIf="email.errors?.['required']"
+                  >Email is required</small
+                >
+                <small *ngIf="email.errors?.['email']"
+                  >Please enter a valid email</small
+                >
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                [(ngModel)]="registerData.password"
+                required
+                minlength="8"
+                #password="ngModel"
+              />
+              <div
+                *ngIf="password.invalid && password.touched"
+                class="text-danger"
+              >
+                <small *ngIf="password.errors?.['required']"
+                  >Password is required</small
+                >
+                <small *ngIf="password.errors?.['minlength']"
+                  >Password must be at least 8 characters</small
+                >
+              </div>
+              <small class="text-muted"
+                >Password must contain uppercase, lowercase, digit, and special
+                character</small
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <textarea
+                class="form-control"
+                id="address"
+                name="address"
+                rows="3"
+                [(ngModel)]="registerData.address"
+                required
+                #address="ngModel"
+              ></textarea>
+              <div
+                *ngIf="address.invalid && address.touched"
+                class="text-danger"
+              >
+                <small>Address is required</small>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactNumber" class="form-label"
+                >Contact Number</label
+              >
+              <input
+                type="tel"
+                class="form-control"
+                id="contactNumber"
+                name="contactNumber"
+                [(ngModel)]="registerData.contactNumber"
+                required
+                pattern="[0-9]{10}"
+                #contactNumber="ngModel"
+              />
+              <div
+                *ngIf="contactNumber.invalid && contactNumber.touched"
+                class="text-danger"
+              >
+                <small *ngIf="contactNumber.errors?.['required']"
+                  >Contact number is required</small
+                >
+                <small *ngIf="contactNumber.errors?.['pattern']"
+                  >Please enter a valid 10-digit phone number</small
+                >
+              </div>
+            </div>
+
+            <div *ngIf="errorMessage" class="alert alert-danger">
+              {{ errorMessage }}
+            </div>
+
+            <div *ngIf="successMessage" class="alert alert-success">
+              {{ successMessage }}
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-success w-100"
+              [disabled]="registerForm.invalid || isLoading"
+            >
+              <span
+                *ngIf="isLoading"
+                class="spinner-border spinner-border-sm me-2"
+              ></span>
+              <i class="fas fa-user-plus me-2"></i>
+              {{ isLoading ? "Creating Account..." : "Create Account" }}
+            </button>
+          </form>
+
+          <hr />
+          <div class="text-center">
+            <p class="mb-0">
+              Already have an account?
+              <a routerLink="/login" class="text-decoration-none">Login here</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
