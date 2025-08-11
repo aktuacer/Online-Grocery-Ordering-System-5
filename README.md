@@ -59,6 +59,8 @@ A comprehensive full-stack web application for online grocery ordering built wit
 
     # Start Angular frontend (in new terminal)
     cd frontend
+    npm install -g @angular/cli
+    npm install
     npm start
     ```
 
